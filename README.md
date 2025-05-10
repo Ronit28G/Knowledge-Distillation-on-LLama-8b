@@ -58,7 +58,7 @@ nsys profile -o llama_profile ./run.sh
 -  ~94% reduction in HtoD time  
 -  4-bit quantization enables better kernel scheduling  
 -  KD preserves most accuracy despite 5B parameter reduction  
--  Suitable for edge deployment (e.g. RTX 4090 / <24GB VRAM)
+-  Suitable for edge deployment
 
 ##  Profiling Tools and Frameworks
 
@@ -73,4 +73,4 @@ nsys profile -o llama_profile ./run.sh
 ##  Conclusion
 Knowledge Distillation combined with quantization and fine-tuning enables substantial compression of LLMs. The LLaMA 3.2 3B student model performs nearly as well as the 8B baseline with significantly lower memory footprint, demonstrating the practical value of model compression techniques in real-world deployment.
 
-##  This is part of our final project for ECE-GY 9143 HPML at NYU. 
+##  This is our final project for ECE-GY 9143 HPML at NYU. 
