@@ -71,6 +71,6 @@ nsys profile -o llama_profile ./run.sh
 - Quantization-induced accuracy trade-offs
 
 ##  Conclusion
-Knowledge Distillation combined with quantization and fine-tuning enables substantial compression of LLMs. The LLaMA 3.2 3B student model performs nearly as well as the 8B baseline with significantly lower memory footprint, demonstrating the practical value of model compression techniques in real-world deployment.
+Knowledge Distillation, combined with quantization and fine-tuning, enables substantial compression of large language models while preserving much of their original performance. In our experiments, the LLaMA 3.2 3B student model achieved accuracy comparable to the 8B teacher model, with significantly reduced memory usage and latency. These results highlight the effectiveness of multi-stage model compression techniques for building lightweight, resource-efficient models suitable for environments with limited hardware capacity.
 
 ##  This is our final project for ECE-GY 9143 HPML at NYU. 
