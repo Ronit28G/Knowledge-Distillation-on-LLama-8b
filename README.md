@@ -13,8 +13,7 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 | Perform knowledge distillation to LLaMA 3.2 3B     | ✅     |
 | Fine-tune the 3B distilled model on sentiment data | ✅     |
 | Add 4-bit quantization                             | ✅     |
-| Benchmark using Nsight Systems                     | ✅     |
-| Integrate with vLLM and TensorRT-LLM               | ✅     |
+| Benchmark using Nsight Systems                     | ✅     |   
 
 ## Repository Structure
 ```
@@ -37,7 +36,7 @@ pip install -r requirements.txt
 
 ### Run Distilled Student Inference
 ```bash
-bash run.sh --model llama_kd --quantized --engine vllm
+bash run.sh --model llama_kd --quantized
 ```
 
 ### Example Command for Profiling with Nsight
@@ -64,8 +63,6 @@ nsys profile -o llama_profile ./run.sh
 ##  Profiling Tools and Frameworks
 
 - **NVIDIA Nsight Systems** for CUDA profiling
-- **vLLM** for optimized inference with batched transformer decoding
-- **TensorRT-LLM** for INT8 quantized execution
 
 ##  Challenges Faced
 - Hardware constraints on local GPUs (24GB VRAM)
@@ -76,6 +73,4 @@ nsys profile -o llama_profile ./run.sh
 ##  Conclusion
 Knowledge Distillation combined with quantization and fine-tuning enables substantial compression of LLMs. The LLaMA 3.2 3B student model performs nearly as well as the 8B baseline with significantly lower memory footprint, demonstrating the practical value of model compression techniques in real-world deployment.
 
-##  GitHub Repo Link
-This is part of our final project for ECE-GY 9143 (HPML at NYU).  
-**GitHub:** [https://github.com/Ronit28G/Knowledge-Distillation-on-LLama-8b]
+##  This is part of our final project for ECE-GY 9143 HPML at NYU. 
