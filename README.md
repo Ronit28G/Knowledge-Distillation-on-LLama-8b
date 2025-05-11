@@ -61,6 +61,18 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 
 
 
+CUDA API Activity
+• CUDA API track (below NVTX) shows many short function calls during this 2.345s window.
+• You'll see calls like cudaMemcpyAsync, cudaLaunchKernel, and memory allocation.
+Yellow ticks = cudaMemcpyAsync (memory copy)
+Red = memory bottlenecks or synchronization
+Green = actual kernel launches
+Blue = completion/cleanup
+Most of these are under the NVT inference region, confirming good timing scope coverage.
+
+
+
+
 
 
 ## Results & Observations
