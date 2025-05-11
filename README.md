@@ -52,6 +52,17 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 
 ```
 
+
+## Sample Demo outputs
+<img width="1465" alt="Image" src="https://github.com/user-attachments/assets/3f51007e-14f9-43ee-b192-a65603041fb3" />
+
+## Nsights UI
+![Image](https://github.com/user-attachments/assets/27c57f36-41ee-4d99-bd14-cbee78f9a059)
+
+
+
+
+
 ## Results & Observations
 
 | Metric                         | LLaMA 8B | LLaMA 3B (KD+FT) |
@@ -67,6 +78,13 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 -  4-bit quantization enables better kernel scheduling  
 -  KD preserves most accuracy despite 5B parameter reduction  
 -  Suitable for edge deployment
+
+## CUDA Execution Breakdown
+![Image](https://github.com/user-attachments/assets/776118c1-2b92-4025-bc98-05e00cbbce2d)
+
+
+## Accuracies
+![Image](https://github.com/user-attachments/assets/5b68bf6a-4788-46e6-be81-abb9876fc72e)
 
 ##  Profiling Tools and Frameworks
 
