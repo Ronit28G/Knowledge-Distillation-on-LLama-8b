@@ -61,7 +61,7 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 | Peak Memory Usage             | ~96 GB   | ~28 GB           |
 | Kernel Utilization            | GEMM FP32 | kgemm_4bit_inference |
 | Token Generation Latency      | ~800 ms  | ~370 ms          |
-| Accuracy (Sentiment Task)     |      |          |
+| Accuracy (Sentiment Task)     |   58.64%   |    58.56%      |
 
 -  ~94% reduction in HtoD time  
 -  4-bit quantization enables better kernel scheduling  
