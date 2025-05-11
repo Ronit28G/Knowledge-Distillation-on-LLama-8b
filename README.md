@@ -56,20 +56,26 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 ## Sample Demo outputs
 <img width="1465" alt="Image" src="https://github.com/user-attachments/assets/3f51007e-14f9-43ee-b192-a65603041fb3" />
 
-## Nsights UI
-![Image](https://github.com/user-attachments/assets/27c57f36-41ee-4d99-bd14-cbee78f9a059)
+## Nsight Systems UI Overview
 
+![Nsight UI Screenshot](https://github.com/user-attachments/assets/27c57f36-41ee-4d99-bd14-cbee78f9a059)
 
+### CUDA API Activity Summary
 
-CUDA API Activity
-• CUDA API track (below NVTX) shows many short function calls during this 2.345s window.
-• You'll see calls like cudaMemcpyAsync, cudaLaunchKernel, and memory allocation.
-Yellow ticks = cudaMemcpyAsync (memory copy)
-Red = memory bottlenecks or synchronization
-Green = actual kernel launches
-Blue = completion/cleanup
-Most of these are under the NVT inference region, confirming good timing scope coverage.
+In the captured 2.345s window, the CUDA API track (located just below the NVTX track) highlights numerous short-duration CUDA function calls. These include:
 
+- `cudaMemcpyAsync` – for asynchronous memory transfers  
+- `cudaLaunchKernel` – for launching GPU kernels  
+- Memory allocation routines  
+
+#### Color Indicators:
+
+- 🟨 **Yellow ticks** – `cudaMemcpyAsync` (memory copy operations)  
+- 🔴 **Red markers** – Synchronization points or memory bottlenecks  
+- 🟩 **Green markers** – Kernel launches  
+- 🔵 **Blue markers** – Completion or cleanup events  
+
+Most CUDA activity falls under the **NVT inference region**, indicating effective instrumentation and good timing scope coverage.
 
 
 
