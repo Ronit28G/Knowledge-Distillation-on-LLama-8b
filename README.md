@@ -18,30 +18,38 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 ## Repository Structure
 ```
 .
-├── llama_teacher/         # Scripts and configs for LLaMA 8B
-├── llama_student/         # Scripts and models for distilled 3B version
-├── notebooks/             # Jupyter notebooks for FT and eval
-├── profiling/             # Nsight logs and analysis screenshots
-├── results/               # Tables and figures from benchmark
-├── run.sh                 # Shell script to launch inference
-└── requirements.txt       # Python dependencies
+├── llama-3.1-8B-Instruct/       # Scripts and configs for LLaMA 8B
+├── llama-3.2-3B-Instruct/       # Scripts and models for distilled 3B version
+├── kd_final_merged/             # Scripts and models for distilled 3B version 
+├── profiling/                   # Nsight logs and analysis screenshots
+├── hpml_training.ipynb          # Notebook for training and KD
+├── evaluation.ipynb             # Notebook for evaluation
 ```
 
 ## Run Instructions
 
-### Setup Environment
+### Switch to an Image containing with correct Nsights library installed
+
 ```bash
-pip install -r requirements.txt
+ /share/apps/images//run-nsight-compute-2023.2.bash
 ```
+
 
 ### Run Distilled Student Inference
 ```bash
-bash run.sh --model llama_kd --quantized
+
+
+  python -c /share/apps/pyenv/py3.9/bin/python inference_kd.py
 ```
 
 ### Example Command for Profiling with Nsight
 ```bash
-nsys profile -o llama_profile ./run.sh
+/ext3/nsight-systems/2023.2.1/bin/nsys profile \
+  --trace=cuda,nvtx,cudnn \
+  --output=timed_infer_report \
+  --force-overwrite true \
+  /share/apps/pyenv/py3.9/bin/python inference_kd.py
+
 ```
 
 ## Results & Observations
@@ -53,7 +61,7 @@ nsys profile -o llama_profile ./run.sh
 | Peak Memory Usage             | ~96 GB   | ~28 GB           |
 | Kernel Utilization            | GEMM FP32 | kgemm_4bit_inference |
 | Token Generation Latency      | ~800 ms  | ~370 ms          |
-| Accuracy (Sentiment Task)     | High     | ~1% drop         |
+| Accuracy (Sentiment Task)     |      |          |
 
 -  ~94% reduction in HtoD time  
 -  4-bit quantization enables better kernel scheduling  
