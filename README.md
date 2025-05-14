@@ -6,7 +6,7 @@ This project explores the use of **Knowledge Distillation (KD)** and **Fine-Tuni
 ## Goal
 To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to approach the performance of an 8B model while drastically reducing memory and inference cost.
 
-## Project Milestones
+## Project Milestones 
 | Milestone                                         | Status |
 |----------------------------------------------------|--------|
 | Set up teacher (LLaMA 3.1 8B)                      | ✅     |
@@ -15,7 +15,7 @@ To evaluate whether multi-stage compression (KD + FT) can enable a 3B model to a
 | Add 4-bit quantization                             | ✅     |
 | Benchmark using Nsight Systems                     | ✅     |   
 
-## Repository Structure
+## Repository Structure (In NYU HPC)
 ```
 .
 ├── llama-3.1-8B-Instruct/       # Scripts and configs for LLaMA 8B
